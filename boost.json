@@ -1,0 +1,15 @@
+{
+    "agents": [
+    ],
+    "guidelines": false,
+    "herd_mcp": false,
+    "mcp": false,
+    "nightwatch_mcp": false,
+    "packages": [
+        "laravel/fortify"
+    ],
+    "sail": false,
+    "skills": [
+       
+    ]
+}
