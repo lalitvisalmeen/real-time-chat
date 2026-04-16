@@ -9,6 +9,7 @@ import { configureEcho } from '@laravel/echo-react';
 configureEcho({
     broadcaster: 'reverb',
 });
+console.log("Echo instance:", (window as any).Echo);
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
