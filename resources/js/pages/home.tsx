@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 
 function Home() {
-    return <> Messages </>;
+    return <> </>;
 }
 
 Home.layout = (page:ReactNode) => {

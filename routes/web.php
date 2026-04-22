@@ -10,6 +10,14 @@ Route::inertia('/', 'welcome', [
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::get('/user/{user}', function() {
+
+    })->name('chat.user');
+    Route::get('/grouo/{group}', function() {
+
+    })->name('chat.group');
+
 });
+
 
 require __DIR__.'/settings.php';

@@ -1,3 +1,5 @@
+import { StringToBoolean } from "class-variance-authority/types";
+import test from "node:test";
 import { ReactNode } from "react";
 
 export type Props = {
@@ -6,6 +8,10 @@ export type Props = {
 
 export type PageProps = {
      conversations: Conversation[];
+     selectedConversation : Conversation;
+     auth : {
+        user : User;
+     }
 }
 
 export type Conversation = {
@@ -13,11 +19,17 @@ export type Conversation = {
     name: string;
     blocked_at: string;
     last_message_date: string;
+    is_group: boolean;
+    is_user : boolean;
+    last_message : string;
+    avatar_url : string | null;
+    is_admin : boolean;
 
 }
 export type User = {
     id: number;
     name: string;
+    is_admin : boolean;
 }
 
 export type Error = {
