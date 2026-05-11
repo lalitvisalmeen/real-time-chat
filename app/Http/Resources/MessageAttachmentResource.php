@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class UserResource extends JsonResource
+class MesssageAttachmentResource extends JsonResource
 {
+
     public static $wrap = false;
+
     /**
      * Transform the resource into an array.
      *
@@ -18,12 +20,13 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'avatar_url' => $this->avatar ? Storage::url($this->avatar) : null,
+            'message_id' => $this->message_id,
             'name' => $this->name,
-            'email' => $this->email,
-            'is_admin' => (bool)$this->is_admin,
-            'last_message' => $this->last_message,
-            'last_message_date' => $this->last_message_date
+            'mime' => $this->mime,
+            'size' => $this->size,
+            'url' => Storage::url($this->path),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

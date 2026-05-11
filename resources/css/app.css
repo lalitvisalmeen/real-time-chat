@@ -150,3 +150,16 @@
         @apply bg-background text-foreground;
     }
 }
+
+.conversation-item .d-avatar.d-avatar-online:before, .conversation-item .d-avatar.d-avatar-offline:before {
+    width : 8px;
+    height : 8px;
+    top : 1%;
+    right : 1%;
+    outline-width: 1px;
+
+}
+
+#app{
+    height: 100vh;
+}

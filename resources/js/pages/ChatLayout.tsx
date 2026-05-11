@@ -28,8 +28,8 @@ const onSearch = (ev : React.KeyboardEvent<HTMLInputElement>) => {
     );
 };
 
-console.log("conversations",conversations);
-console.log("Selected Conversation", selectedConversation);
+//console.log("conversations",conversations);
+//console.log("Selected Conversation", selectedConversation);
 
 useEffect(() => {
     setSortedConversations(
@@ -61,13 +61,16 @@ useEffect(() => {setLocalConversations(conversations)}, [conversations]);
 useEffect(() => {
     Echo.join("online")
             .here((users : User[]) => {
+                console.log('users', users);
                 const onlineUserObj = Object.fromEntries(
                     users.map((user) => [user.id, user])
                 );
+                console.log("onlineuserobj", onlineUserObj);
 
                 setOnlineUsers((prevOnlineUsers : Record<number, User>) => {
                     return {...prevOnlineUsers, ...onlineUserObj};
                 });
+                console.log('here', onlineUsers);
             })
             .joining((user : User) => {
                 setOnlineUsers((prevOnlineUsers : Record<number, User>) => {
@@ -75,6 +78,7 @@ useEffect(() => {
                         updatedUsers[user.id] = user;
                         return updatedUsers;
                 });
+                console.log("joining", onlineUsers);
             })
             .leaving((user : User) => {
                 setOnlineUsers((prevOnlineUsers : Record<number, User>) => {
